@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+tmp/
+build/
+.DS_Store
+.env
+screenshots
+/reports
+selenium-debug.log
