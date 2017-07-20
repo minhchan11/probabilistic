@@ -3,11 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="./build/css/vendor.css">
-  <link rel="stylesheet" href="./build/css/styles.css">
+  <link rel="stylesheet" href="/build/css/vendor.css">
+  <link rel="stylesheet" href="/build/css/styles.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <script type="text/javascript" src="./build/js/vendor.min.js"></script>
-  <script type="text/javascript" src="./build/js/app.js"></script>
   <title>Probabilistic</title>
 </head>
 
@@ -26,82 +24,86 @@
           </div>
 
           <div class="modal fade" id="probablistic_modal" tabindex="-1" role="dialog" aria-labelledby="probablistic modal">
-         <div class="modal-dialog" role="document">
-           <div class="modal-content">
-             <div class="modal-header">
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-               <h4 class="modal-title" id="probablistic_modal_label">Probabilistic Modelling
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="probablistic_modal_label">Probabilistic Modelling
             <a class="hint-text-icon toggled-hidden" tabindex="0" role="button" data-trigger="focus" data-toggle="popover" title=""
                 data-original-title="Why is important to specify a probabilistic distribution for this input?"
                 data-content="Select a distribution that best describes the variation perceived in the parameter value.  Designating a variable as deterministic implies that there is effectively no variation in the parameter's value. By specifying a distribution (and its associated parameters) other than deterministic, the simulation is automatically converted into a probabilistic model (Monte Carlo Simulation). The inputs can be based on available data, recommendations, expertise, or statistical analysis. While a deterministic input results in a simpler calculation, specifying input parameters as a distribution facilitates additional results that describe parameter sensitivity.">
                 <i class="fa fa-question-circle"></i>
                 </h4>
-            </a>
-             </div>
-             <div class="modal-body">
-              <div class="row">
-                  <div class="col-sm-12">
-                    <div class="panel panel-default">
+                  </a>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="probalistic_input_field">Input Field</h3>
+                          <h3 class="panel-title" id="probalistic_input_field">Input Field</h3>
                         </div>
                         <div class="panel-body">
-                            <div class="form-group col-sm-12">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="button" class="btn btn-default dropdown-toggle" id="probalistic_model" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#" class="probalistic_model_value" id="probalisticmodel_deterministic" data-type="deterministic" mean-active="true">Deterministic</a></li>
-                                            <li><a href="#" class="probalistic_model_value" id="probalisticmodel_uniform" data-type="uniform" minimum-active="true" maximum-active="true">Uniform</a></li>
-                                            <li><a href="#" class="probalistic_model_value" id="probalisticmodel_normal" data-type="normal" mean-active="true" std-active="true">Normal</a></li>
-                                            <li><a href="#" class="probalistic_model_value" id="probalisticmodel_lognormal" data-type="lognormal" mean-active="true" std-active="true">Log Normal</a></li>
-                                            <li><a href="#" class="probalistic_model_value" id="probalisticmodel_triangular" data-type="triangular" minimum-active="true" maximum-active="true" likely-active="true">Triangular</a></li>
-                                            <li><a href="#" class="probalistic_model_value" id="probalisticmodel_truncatednormal" data-type="truncatednormal" mean-active="true" std-active="true" minimum-active="true" maximum-active="true">Truncated Normal</a></li>
-                                            <li><a href="#" class="probalistic_model_value" id="probalisticmodel_truncatedlognormal" data-type="truncatedlognormal" mean-active="true" std-active="true" minimum-active="true" maximum-active="true">Truncated Lognormal</a></li>
-                                        </ul>
-                                    </div>
-                                    <input type="text" class="form-control" id="probalistic_model_input" name="probalistic_model_input" placeholder="Probalistic Model">
-                                </div>
+                          <div class="form-group col-sm-12">
+                            <div class="input-group">
+                              <div class="input-group-btn">
+                                <button type="button" class="btn btn-default dropdown-toggle" id="probalistic_model" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#" class="probalistic_model_value" id="probalisticmodel_deterministic" data-type="deterministic" mean-active="true">Deterministic</a></li>
+                                  <li><a href="#" class="probalistic_model_value" id="probalisticmodel_uniform" data-type="uniform" minimum-active="true" maximum-active="true">Uniform</a></li>
+                                  <li><a href="#" class="probalistic_model_value" id="probalisticmodel_normal" data-type="normal" mean-active="true" std-active="true">Normal</a></li>
+                                  <li><a href="#" class="probalistic_model_value" id="probalisticmodel_lognormal" data-type="lognormal" mean-active="true" std-active="true">Log Normal</a></li>
+                                  <li><a href="#" class="probalistic_model_value" id="probalisticmodel_triangular" data-type="triangular" minimum-active="true" maximum-active="true" likely-active="true">Triangular</a></li>
+                                  <li><a href="#" class="probalistic_model_value" id="probalisticmodel_truncatednormal" data-type="truncatednormal" mean-active="true" std-active="true" minimum-active="true" maximum-active="true">Truncated Normal</a></li>
+                                  <li><a href="#" class="probalistic_model_value" id="probalisticmodel_truncatedlognormal" data-type="truncatedlognormal" mean-active="true" std-active="true" minimum-active="true" maximum-active="true">Truncated Lognormal</a></li>
+                                </ul>
+                              </div>
+                              <input type="text" class="form-control" id="probalistic_model_input" name="probalistic_model_input" placeholder="Probalistic Model">
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label for="probalistic_input_mean">Mean</label>
-                                <input type="number" step="any" min="0" class="form-control" id="probalistic_input_mean" name="probalistic_input_mean" disabled >
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="probalistic_input_std">Standard Deviation</label>
-                                <input type="number" step="any" min="0" class="form-control" id="probalistic_input_std" name="probalistic_input_std" disabled>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="probalistic_input_minimum">Minimum</label>
-                                <input type="number" step="any" min="0" class="form-control" id="probalistic_input_minimum" name="probalistic_input_minimum" disabled>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="probalistic_input_maximum">Maximum</label>
-                                <input type="number" step="any" min="0" class="form-control" id="probalistic_input_maximum" name="probalistic_input_maximum" disabled>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="probalistic_input_likely">Likely</label>
-                                <!-- TODO:  make this "Mode / Most Likely" -->
-                                <input type="number" step="any" min="0" class="form-control" id="probalistic_input_likely" name="probalistic_input_likely" disabled>
-                            </div>
-                            <div class="form-group col-sm-6">
-                              <label for="">Submit to see graph result</label>
-                              <button type="submit" name="button" id="submitButton" class="btn btn-block btn-success">Submit</button>
-                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <label for="probalistic_input_mean">Mean</label>
+                            <input type="number" step="any" min="0" class="form-control" id="probalistic_input_mean" name="probalistic_input_mean" disabled>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <label for="probalistic_input_std">Standard Deviation</label>
+                            <input type="number" step="any" min="0" class="form-control" id="probalistic_input_std" name="probalistic_input_std" disabled>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <label for="probalistic_input_minimum">Minimum</label>
+                            <input type="number" step="any" min="0" class="form-control" id="probalistic_input_minimum" name="probalistic_input_minimum" disabled>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <label for="probalistic_input_maximum">Maximum</label>
+                            <input type="number" step="any" min="0" class="form-control" id="probalistic_input_maximum" name="probalistic_input_maximum" disabled>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <label for="probalistic_input_likely">Likely</label>
+                            <!-- TODO:  make this "Mode / Most Likely" -->
+                            <input type="number" step="any" min="0" class="form-control" id="probalistic_input_likely" name="probalistic_input_likely" disabled>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <label for="">Submit to see graph result</label>
+                            <button type="submit" name="button" id="submitButton" class="btn btn-block btn-success">Submit</button>
+                          </div>
 
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
               </div>
-             </div>
-        </div>
 
+            </div>
+          </div>
+        </div>
+        <button type="submit" name="button" id="submitButton" class="btn btn-block btn-info">Next</button>
+        <div id="d3"></div>
       </div>
     </div>
   </div>
-  <button type="submit" name="button" id="submitButton" class="btn btn-block btn-info">Next</button>
-  </div>
-  </div>
+  <script type="text/javascript" src="/build/js/vendor.min.js"></script>
+  <script type="text/javascript" src="/build/js/app.js"></script>
 </body>
 
 </html>
