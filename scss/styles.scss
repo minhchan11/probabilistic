@@ -1,5 +1,16 @@
 #d3{
-  display: flex;
+   display: flex;
    align-items: center;
    justify-content: center;
+}
+
+.jumbotron{
+  text-align: center;
+
+  color: white !important;
+  background: linear-gradient(rgba(181, 173, 173, 0.55), rgba(181, 173, 173, 0.55)),
+                url(http://i.telegraph.co.uk/multimedia/archive/02419/roads_2419537b.jpg);
+  background-size: cover;
+
+  font-size: 4em;
 }
