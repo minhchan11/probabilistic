@@ -85,6 +85,20 @@ function triangularDataSet(min, max, likely) {
   return data;
 }
 
+function truncatedNormalDataSet(mean, std, min, max) {
+  var data = [{"x":mean-5, "y":0}, {"x":min, "y":0}];
+  for (var i = min; i <= max; i += ((max - min)/400)) {
+    el = {
+        "x": i,
+        "y": jStat.normal.pdf(i, mean, std)
+      }
+    data.push(el);
+    }
+  data.push({"x":max, "y":0}, {"x":mean+5, "y":0});
+  console.log(data);
+  return data;
+}
+
 function drawGraph(data) {
   var x = d3.scaleLinear()
     .domain([d3.min(data, function(d) {
@@ -166,4 +180,4 @@ function drawGraph(data) {
 
 }
 
-drawGraph(triangularDataSet(9, 16.5, 10.5));
+drawGraph(truncatedNormalDataSet(12.5, 1.5, 10, 16));
