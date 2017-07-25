@@ -29,7 +29,7 @@ function normalDataSet(mean, std) {
   for (var i = mean - 5; i <= mean + 5; i += 0.025) {
     el = {
       "x": i,
-      "y": jStat.normal.pdf(i, mean, 1.5)
+      "y": jStat.normal.pdf(i, mean, std)
     }
     data.push(el);
   }
@@ -61,6 +61,19 @@ function uniformDataSet(min, max) {
   return data;
 }
 
+function logNormalDataSet(mean, std) {
+  var data = [];
+  for (var i = 0; i <= 5; i += 0.025) {
+    el = {
+      "x": i,
+      "y": jStat.lognormal.pdf(i, mean, std)
+    }
+    data.push(el);
+  }
+
+  console.log(jStat.lognormal.pdf(i, mean, std));
+  return data;
+}
 
 function drawGraph(data) {
   var x = d3.scaleLinear()
@@ -139,8 +152,8 @@ function drawGraph(data) {
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .text("Probability");
+      .text("Probability Density");
 
 }
 
-drawGraph(uniformDataSet(12, 30));
+drawGraph(logNormalDataSet(1, 1));
