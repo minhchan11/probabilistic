@@ -1,7 +1,7 @@
 $(document).ready(function () {
-  // $(".glyphicon-cog").unbind("click").click(function() {
-  // 		$('#probalistic_input_field').html($(this).attr('data-modal-label'));
-  // 	});
+  $(".glyphicon-cog").unbind("click").click(function() {
+  		$('#probalistic_input_field').html($(this).attr('data-modal-label'));
+  	});
   	$(".probalistic_model_value").unbind('click').click(
   		function(){
   			$('#probalistic_model_input').val($(this).html());
