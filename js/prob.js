@@ -70,8 +70,18 @@ function logNormalDataSet(mean, std) {
     }
     data.push(el);
   }
+  return data;
+}
 
-  console.log(jStat.lognormal.pdf(i, mean, std));
+function triangularDataSet(min, max, likely) {
+  var data = [];
+  for (var i = min; i <= max; i += ((max-min)/400)) {
+    el = {
+      "x": i,
+      "y": jStat.triangular.pdf(i, min, max, likely)
+    }
+    data.push(el);
+  }
   return data;
 }
 
@@ -156,4 +166,4 @@ function drawGraph(data) {
 
 }
 
-drawGraph(logNormalDataSet(1, 1));
+drawGraph(triangularDataSet(9, 16.5, 10.5));
