@@ -50,7 +50,7 @@ function deterministicDataSet(mean) {
 }
 
 function uniformDataSet(min, max) {
-  var data = [];
+  var data = [{"x":0, "y":0}, {"x":min, "y":0}];
   for (var i = min; i <= max; i += ((max-min)/400)) {
     el = {
       "x": i,
@@ -58,6 +58,7 @@ function uniformDataSet(min, max) {
     }
     data.push(el);
   }
+  data.push({"x":max, "y":0}, {"x":max+5, "y":0});
   return data;
 }
 
@@ -95,6 +96,19 @@ function truncatedNormalDataSet(mean, std, min, max) {
     data.push(el);
     }
   data.push({"x":max, "y":0}, {"x":mean+5, "y":0});
+  return data;
+}
+
+function truncatedLogNormalDataSet(mean, std, min, max) {
+  var data = [{"x":0, "y":0}, {"x":min, "y":0}];
+  for (var i = min; i <= max; i += ((max - min)/400)) {
+    el = {
+      "x": i,
+      "y": jStat.lognormal.pdf(i, mean, std)
+    }
+    data.push(el);
+  }
+  data.push({"x":max, "y":0}, {"x":5, "y":0});
   console.log(data);
   return data;
 }
@@ -179,5 +193,3 @@ function drawGraph(data) {
       .text("Probability Density");
 
 }
-
-drawGraph(truncatedNormalDataSet(12.5, 1.5, 10, 16));
