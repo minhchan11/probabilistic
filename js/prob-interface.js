@@ -11,7 +11,20 @@ $(document).ready(function () {
   			$("#probalistic_input_minimum").attr('disabled',!$(this).attr('minimum-active'));
   			$("#probalistic_input_maximum").attr('disabled',!$(this).attr('maximum-active'));
   			$("#probalistic_input_likely").attr('disabled',!$(this).attr('likely-active'));
-  			return false;
+
+
   		}
   	);
+
+    $("#visualize").submit(function(event){
+      event.preventDefault();
+      var option = $('#probalistic_model_input').val();
+      var mean = parseInt($('#probalistic_input_mean').val());
+      var std = parseInt($('#probalistic_input_std').val());
+      var min = parseInt($('#probalistic_input_minimum').val());
+      var max = parseInt($('#probalistic_input_maximum').val());
+      var likely = parseInt($('#probalistic_input_likely').val());
+      console.log(option);
+    });
+
 })
