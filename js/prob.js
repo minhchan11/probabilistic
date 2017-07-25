@@ -14,16 +14,16 @@ var group = canvas.append("g")
                   .attr("transform", "translate(100,100)");
 
 var data = [];
-
-for (var i = 7.5; i <= 17.5; i += 0.5) {
+var total = 0;
+for (var i = 7.5; i <= 17.5; i += 0.025) {
   el = {
         "x": i,
         "y": jStat.normal.pdf(i, 12.5, 1.5)
     }
     data.push(el);
 }
-console.log(data);
-console.log(d3.min(data, function(d) { return d.x; }));
+
+
 
 var x = d3.scaleLinear()
           .domain([d3.min(data, function(d) { return d.x; }), d3.max(data, function(d) { return d.x; })])
@@ -39,10 +39,17 @@ var xAxis = d3.axisBottom()
 var yAxis = d3.axisLeft()
               .scale(y);
 
+var area = d3.area()
+    .x(function(d) { return x(d.x); })
+    .y0(height-200)
+    .y1(function(d) { return y(d.y); });
+
 var line = d3.line()
             .x(function(d){ return x(d.x);})
             .y(function(d){ return y(d.y);})
             .curve(d3.curveMonotoneX) ;
+
+
 
             group.selectAll("path")
                   .data([data])
@@ -52,6 +59,16 @@ var line = d3.line()
                     .attr("fill","none")
                     .attr("stroke","steelBlue")
                     .attr("stroke-width", "1.5px");
+
+            group.selectAll(".area")
+                  .data([data])
+                  .enter()
+                    .append("path")
+                    .attr("class", "area")
+                    .attr("d", area)
+                    .attr("fill", "lightsteelblue")
+                    .attr("stroke-width", 0)
+                    .attr("opacity", 0.4);
 
 group.append("g")
     .attr("transform","translate (0,"+ (height-200) + ")") // move down x
