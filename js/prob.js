@@ -91,7 +91,7 @@ function truncatedLogNormalDataSet(mean, std, min, max) {
 
 function drawGraph(data) {
   cleanGraph();
-  
+
   var width = 960;
   var height = 500;
   var canvas = d3.select("#d3")
@@ -196,4 +196,9 @@ function drawGraph(data) {
 
 function cleanGraph(){
   d3.select("svg").remove();
+}
+
+function restartForm(){
+  $("#probablistic_modal").modal("hide");
+  $('input').val("");
 }

@@ -26,24 +26,31 @@ $(document).ready(function () {
       switch (option) {
         case 'Deterministic':
           drawGraph(deterministicDataSet(mean));
+          restartForm();
           break;
         case 'Uniform':
           drawGraph(uniformDataSet(min, max));
+          restartForm();
           break;
         case 'Normal':
           drawGraph(normalDataSet(mean, std));
+          restartForm();
           break;
         case 'Log Normal':
           drawGraph(logNormalDataSet(mean, std));
+          restartForm();
           break;
         case 'Triangular':
           drawGraph(triangularDataSet(min, max, likely));
+          restartForm();
           break;
         case 'Truncated Normal':
           drawGraph(truncatedNormalDataSet(mean, std, min, max));
+          restartForm();
           break;
         case 'Truncated Lognormal':
           drawGraph(truncatedLogNormalDataSet(mean, std, min, max));
+          restartForm();
           break;
       }
     });
