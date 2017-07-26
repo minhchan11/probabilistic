@@ -2,7 +2,7 @@ var jStat = require('jStat');
 
 function normalDataSet(mean, std) {
   var data = [];
-  for (var i = mean - 4*std; i <= mean + 4*std; i += 0.025) {
+  for (var i = mean - 4*std; i <= mean + 4*std; i += 0.08*std) {
     el = {
       "x": i,
       "y": jStat.normal.pdf(i, mean, std)
@@ -15,7 +15,7 @@ function normalDataSet(mean, std) {
 
 function deterministicDataSet(mean) {
   var data = [];
-  for (var i = 0; i <= 20; i += 0.1) {
+  for (var i = 0; i <= 400; i ++) {
     el = {
       "x": i,
       "y": mean*i
