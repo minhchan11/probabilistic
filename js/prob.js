@@ -1,29 +1,5 @@
 var jStat = require('jStat');
 
-var width = 960;
-var height = 500;
-var canvas = d3.select("#d3")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", height)
-  .attr("class", "chart");
-
-var margin = {
-  left: 100,
-  top: 100,
-  right: 50,
-  bottom: 50
-};
-
-var padding = 20;
-
-var group = canvas.append("g")
-  .attr("width", width - margin.left - margin.right)
-  .attr("height", height - margin.top - margin.bottom)
-  .attr("transform", "translate(100,100)")
-  .attr("padding", padding);
-
-
 function normalDataSet(mean, std) {
   var data = [];
   for (var i = mean - 5; i <= mean + 5; i += 0.025) {
@@ -114,6 +90,31 @@ function truncatedLogNormalDataSet(mean, std, min, max) {
 }
 
 function drawGraph(data) {
+  cleanGraph();
+  
+  var width = 960;
+  var height = 500;
+  var canvas = d3.select("#d3")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("class", "chart");
+
+  var margin = {
+    left: 100,
+    top: 100,
+    right: 50,
+    bottom: 50
+  };
+
+  var padding = 20;
+
+  var group = canvas.append("g")
+    .attr("width", width - margin.left - margin.right)
+    .attr("height", height - margin.top - margin.bottom)
+    .attr("transform", "translate(100,100)")
+    .attr("padding", padding);
+
   var x = d3.scaleLinear()
     .domain([d3.min(data, function(d) {
       return d.x;
@@ -191,5 +192,8 @@ function drawGraph(data) {
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .text("Probability Density");
+}
 
+function cleanGraph(){
+  d3.select("svg").remove();
 }

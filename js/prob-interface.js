@@ -11,8 +11,6 @@ $(document).ready(function () {
   			$("#probalistic_input_minimum").attr('disabled',!$(this).attr('minimum-active'));
   			$("#probalistic_input_maximum").attr('disabled',!$(this).attr('maximum-active'));
   			$("#probalistic_input_likely").attr('disabled',!$(this).attr('likely-active'));
-
-
   		}
   	);
 
@@ -24,7 +22,30 @@ $(document).ready(function () {
       var min = parseInt($('#probalistic_input_minimum').val());
       var max = parseInt($('#probalistic_input_maximum').val());
       var likely = parseInt($('#probalistic_input_likely').val());
-      console.log(option);
+
+      switch (option) {
+        case 'Deterministic':
+          drawGraph(deterministicDataSet(mean));
+          break;
+        case 'Uniform':
+          drawGraph(uniformDataSet(min, max));
+          break;
+        case 'Normal':
+          drawGraph(normalDataSet(mean, std));
+          break;
+        case 'Log Normal':
+          drawGraph(logNormalDataSet(mean, std));
+          break;
+        case 'Triangular':
+          drawGraph(triangularDataSet(min, max, likely));
+          break;
+        case 'Truncated Normal':
+          drawGraph(truncatedNormalDataSet(mean, std, min, max));
+          break;
+        case 'Truncated Lognormal':
+          drawGraph(truncatedLogNormalDataSet(mean, std, min, max));
+          break;
+      }
     });
 
 })
