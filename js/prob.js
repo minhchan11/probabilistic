@@ -201,6 +201,4 @@ function cleanGraph(){
 function restartForm(){
   $("#probablistic_modal").modal("hide");
   $('input').val("");
-
-
 }
