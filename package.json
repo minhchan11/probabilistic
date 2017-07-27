@@ -35,6 +35,7 @@
   "homepage": "https://github.com/minhchan11/probabilistic#readme",
   "dependencies": {
     "d3-axis": "^1.0.8",
-    "jStat": "^1.7.0"
+    "jStat": "^1.7.0",
+    "numbers": "^0.6.0"
   }
 }

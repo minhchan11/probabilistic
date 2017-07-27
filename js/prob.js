@@ -1,4 +1,5 @@
 var jStat = require('jStat');
+var numbers = require('numbers');
 
 function normalDataSet(mean, std) {
   var data = [];
@@ -8,8 +9,8 @@ function normalDataSet(mean, std) {
       "y": jStat.normal.pdf(i, mean, std)
     }
     data.push(el);
+    data2.push(jStat.normal.pdf(i, mean, std));
   }
-
   return data;
 }
 
@@ -202,3 +203,15 @@ function restartForm(){
   $("#probablistic_modal").modal("hide");
   $('input').val("");
 }
+
+function monteCarlo(total, mean, std, seed){
+  var meanArray = [];
+  for (var i = 0; i < seed; i++) {
+    var result = numbers.random.distribution.normal(total, mean, std)
+    meanArray.push(jStat(result).mean());
+  }
+  console.log(jStat(meanArray).mean());
+  console.log(jStat(meanArray).stdev());
+}
+
+monteCarlo(100,12.5,1.5,100000);
