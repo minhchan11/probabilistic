@@ -40,7 +40,7 @@ function uniformDataSet(min, max) {
 
 function logNormalDataSet(mean, std) {
   var data = [];
-  for (var i = 0; i <= 5; i += 0.025) {
+  for (var i = 0; i <= mean*20; i += (0.05*mean)) {
     el = {
       "x": i,
       "y": jStat.lognormal.pdf(i, mean, std)
@@ -84,7 +84,7 @@ function truncatedLogNormalDataSet(mean, std, min, max) {
     }
     data.push(el);
   }
-  data.push({"x":max, "y":0}, {"x":5, "y":0});
+  data.push({"x":max, "y":0}, {"x":max+5, "y":0});
   console.log(data);
   return data;
 }

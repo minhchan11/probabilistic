@@ -17,11 +17,11 @@ $(document).ready(function () {
     $("#visualize").submit(function(event){
       event.preventDefault();
       var option = $('#probalistic_model_input').val();
-      var mean = parseInt($('#probalistic_input_mean').val());
-      var std = parseInt($('#probalistic_input_std').val());
-      var min = parseInt($('#probalistic_input_minimum').val());
-      var max = parseInt($('#probalistic_input_maximum').val());
-      var likely = parseInt($('#probalistic_input_likely').val());
+      var mean = parseFloat($('#probalistic_input_mean').val());
+      var std = parseFloat($('#probalistic_input_std').val());
+      var min = parseFloat($('#probalistic_input_minimum').val());
+      var max = parseFloat($('#probalistic_input_maximum').val());
+      var likely = parseFloat($('#probalistic_input_likely').val());
 
       switch (option) {
         case 'Deterministic':
