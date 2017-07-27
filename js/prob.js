@@ -204,14 +204,33 @@ function restartForm(){
   $('input').val("");
 }
 
-function monteCarlo(total, mean, std, seed){
+function monteCarlo(mean1, std1, mean2, std2, mean3, std3, seed){
   var meanArray = [];
-  for (var i = 0; i < seed; i++) {
-    var result = numbers.random.distribution.normal(total, mean, std)
-    meanArray.push(jStat(result).mean());
+  for (var i = 0; i < 1000; i++) {
+    var totalArray = []
+    for (var j = 0; j < seed; j++) {
+        var total = jStat.normal.sample(mean1, std1) + jStat.normal.sample(mean2, std2) + jStat.normal.sample(mean3, std3);
+        totalArray.push(total);
+    }
+    meanArray.push(jStat(totalArray).mean());
   }
   console.log(jStat(meanArray).mean());
   console.log(jStat(meanArray).stdev());
 }
+//
+monteCarlo(12.5,1.5,11.5,2.5, 18.5,1.5, 50000);
 
-monteCarlo(100,12.5,1.5,100000);
+// function monteCarlo2(mean1, std1, mean2, std2, mean3, std3, seed){
+//   for (var i = 0; i < 100; i++) {
+//     var totalArray = []
+//     for (var j = 0; j < 50000; j++) {
+//         var total = 33.8 + 0.0463*(jStat.normal.sample(mean1, std1)) - 0.3152*(jStat.normal.sample(mean2, std2)) - 1.064*(jStat.normal.sample(mean3, std3)) + 0.01385*(jStat.normal.sample(mean2, std2))*(jStat.normal.sample(mean3, std3));
+//         totalArray.push(total);
+//     }
+//   }
+//   console.log(totalArray);
+//   console.log(jStat(totalArray).mean());
+//   console.log(jStat(totalArray).stdev());
+// }
+//
+// monteCarlo2(112,40,92.5,12,35,11, 50000);
